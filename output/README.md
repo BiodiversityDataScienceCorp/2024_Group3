@@ -1,1 +1,1 @@
-## This will be the outut folder
+## This is where outputs will go 
