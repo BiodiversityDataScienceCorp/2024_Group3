@@ -9,3 +9,5 @@ My favorite species from the list is the red tree vole. I am not as interested i
 
 Fiona Paragraph:
 My favorite species on the list is the Little Brown Bat. I love bats in general, and specifically for this project I want to look at an animal not a plant. I also know that bat populations overall have been declining due to climate change and the emergence of diseases and fungal infections, like white-nose syndrome. 
+
+Zayd Paragrapgh: One of my favorite animals is the spotted hyena. Their unique social structure and intricate form (but weird) of communication is fascinating. I find it interesting that they have massive groups called clans which are matriarchal groups.These clans can have up to 100 members! They are much more intelligent than people believe and I hope to meet one in the future!
