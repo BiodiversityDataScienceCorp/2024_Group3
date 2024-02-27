@@ -65,12 +65,18 @@ fData<-fData %>%
 fData<-fData %>%
   distinct(decimalLongitude, decimalLatitude, speciesKey, datasetKey, .keep_all = TRUE)
 
+#The initial mapping attempt showed a point in Myanmar, that seems to have been miss classified as being in the US
+fData<-fData%>%
+  filter(decimalLongitude<0)
+
 #one fell swoop:
-cleanData <-d %>%
-  filter(!is.na(decimalLatitude), !is.na(decimalLongitude)) %>%
-  filter(countryCode %in% c("US", "CA", "MX") %>%
-           filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
-           cc_sea(lon="decimalLongitude", lat = "decimalLatitude") %>%
-           distinct(decimalLongitude, decimalLatitude, speciesKey, datasetKey, .keep_all = TRUE)
+#cleanData <-d %>%
+  #filter(!is.na(decimalLatitude), !is.na(decimalLongitude)) %>%
+  #filter(countryCode %in% c("US", "CA", "MX") %>%
+           #filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
+           #cc_sea(lon="decimalLongitude", lat = "decimalLatitude") %>%
+           #distinct(decimalLongitude, decimalLatitude, speciesKey, datasetKey, .keep_all = TRUE)
          
-         write_csv(fData, "data/cleanedData.csv")
+write.csv(fData, "data/cleanedData.csv")
+         
+ 
