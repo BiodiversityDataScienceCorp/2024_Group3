@@ -40,7 +40,37 @@ occ_download(pred("taxonKey", speciesKey), format="SIMPLE_CSV")
 # Citation:
 #   GBIF Occurrence Download https://doi.org/10.15468/dl.ump7ff Accessed from R via rgbif (https://github.com/ropensci/rgbif) on 2024-02-27
 
+#
 d <- occ_download_get('0022361-240216155721649', path="data/") %>%
   occ_download_import()
 
 write_csv(d, "data/rawData.csv")
+
+
+
+#cleaning
+fData<-d %>%
+  filter(!is.na(decimalLatitude), !is.na(decimalLongitude))
+
+fData<-fData %>%
+  filter(countryCode %in% c("US", "CA", "MX"))
+
+fData<-fData %>%
+  filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN"))
+
+fData<-fData %>%
+  cc_sea(lon="decimalLongitude", lat = "decimalLatitude")
+
+#remove duplicates
+fData<-fData %>%
+  distinct(decimalLongitude, decimalLatitude, speciesKey, datasetKey, .keep_all = TRUE)
+
+#one fell swoop:
+cleanData <-d %>%
+  filter(!is.na(decimalLatitude), !is.na(decimalLongitude)) %>%
+  filter(countryCode %in% c("US", "CA", "MX") %>%
+           filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
+           cc_sea(lon="decimalLongitude", lat = "decimalLatitude") %>%
+           distinct(decimalLongitude, decimalLatitude, speciesKey, datasetKey, .keep_all = TRUE)
+         
+         write_csv(fData, "data/cleanedData.csv")
