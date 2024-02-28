@@ -7,7 +7,7 @@ if(any(installed_packages==FALSE)){
 }
 
 library(rgbif)
-# Packages loading, with libray function 
+# Packages loading, with library function 
 invisible(lapply(packages, library, character.only=TRUE))
 
 usethis::edit_r_environ()
@@ -68,7 +68,7 @@ fData<-fData %>%
 #one fell swoop:
 cleanData <-d %>%
   filter(!is.na(decimalLatitude), !is.na(decimalLongitude)) %>%
-  filter(countryCode %in% c("US", "CA", "MX") %>%
+  filter(countryCode %in% c("US", "CA", "MX")) %>%
            filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
            cc_sea(lon="decimalLongitude", lat = "decimalLatitude") %>%
            distinct(decimalLongitude, decimalLatitude, speciesKey, datasetKey, .keep_all = TRUE)
