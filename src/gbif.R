@@ -70,14 +70,15 @@ fData<-fData%>%
   filter(decimalLongitude<0)
 
 #one fell swoop:
-<<<<<<< HEAD
+
 cleanData <-d %>%
   filter(!is.na(decimalLatitude), !is.na(decimalLongitude)) %>%
+  filter(decimalLongitude<0)%>%
   filter(countryCode %in% c("US", "CA", "MX")) %>%
            filter(!basisOfRecord %in% c("FOSSIL_SPECIMEN", "LIVING_SPECIMEN")) %>%
            cc_sea(lon="decimalLongitude", lat = "decimalLatitude") %>%
            distinct(decimalLongitude, decimalLatitude, speciesKey, datasetKey, .keep_all = TRUE)
-=======
+
 #cleanData <-d %>%
   #filter(!is.na(decimalLatitude), !is.na(decimalLongitude)) %>%
   #filter(countryCode %in% c("US", "CA", "MX") %>%
@@ -85,7 +86,7 @@ cleanData <-d %>%
            #cc_sea(lon="decimalLongitude", lat = "decimalLatitude") %>%
            #distinct(decimalLongitude, decimalLatitude, speciesKey, datasetKey, .keep_all = TRUE)
          
-write.csv(fData, "data/cleanedData.csv")
->>>>>>> ace7b90d10c4692403fcc76327a0ef72b8c4e2c9
+write_csv(cleanData, "data/cleanedData.csv")
+
          
  
