@@ -21,4 +21,4 @@ map<-leaflet()%>%
 #The initial mapping attempt gave a point that was not in North America (Myanmar) went back to filtering to filter that point out (it was the only one with a positive longitude)
 
 #to save map
-mapshot2(map, file = "output/fisherOccurances.png")
+mapshot2(map, file = "output/fisherOccurrence.png")
