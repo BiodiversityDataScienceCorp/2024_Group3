@@ -6,4 +6,4 @@ Group 3 SSA / Species Distribution Modeling
 
 ## Species: Fisher *(Pekania pennanti)*
 
-![](images/Fisher(PekaniaPennanti.jpg))
+<img src="images/PekaniaPennanti.jpg" width="1024" height="659"/>
