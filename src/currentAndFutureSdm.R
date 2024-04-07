@@ -229,5 +229,4 @@ ggplot() +
 ggsave("output/pekaniaFutureSdm.jpg",  width = 8, height = 6)
 
 
-
 ##### END FUTURE SDM ######
