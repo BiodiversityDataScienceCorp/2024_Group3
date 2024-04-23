@@ -6,4 +6,6 @@ Group 3 SSA / Species Distribution Modeling
 
 ## Species: Fisher *(Pekania pennanti)*
 
+DOI: 10.5281/zenodo.11051172
+
 <img src="images/PekaniaPennanti.jpg" alt="iNaturalist Canada: Photo 194542859, (c) edporopat, some rights reserved (CC BY-NC), uploaded by edporopat" width="1024" height="659"/>
